@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.1](https://github.com/extra2000/nginx-formula/compare/v1.0.0...v1.0.1) (2021-03-05)
+
+
+### Fixes
+
+* **selinux:** Fix permission denied when forwarding port `5601` ([0ed9b6e](https://github.com/extra2000/nginx-formula/commit/0ed9b6eafe232e794aa66b266ee01ca16c5647f3))
+
 ## 1.0.0 (2021-03-01)
 
 
