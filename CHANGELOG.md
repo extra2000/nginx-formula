@@ -1,5 +1,21 @@
 # Changelog
 
+## [2.0.0](https://github.com/extra2000/nginx-formula/compare/v1.0.1...v2.0.0) (2021-03-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* NGINX deployment is now using Podman container.
+
+### Features
+
+* Revamp into Podman container ([a89254a](https://github.com/extra2000/nginx-formula/commit/a89254a393b14ca675e767d6ef828995c8036eb0))
+
+
+### Documentations
+
+* **README:** Update `README.md` ([0ee4818](https://github.com/extra2000/nginx-formula/commit/0ee4818ccafc6662b43fed4f2dec163301451fe5))
+
 ### [1.0.1](https://github.com/extra2000/nginx-formula/compare/v1.0.0...v1.0.1) (2021-03-05)
 
 
