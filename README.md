@@ -11,4 +11,5 @@ SaltStack Formula for [NGINX](https://www.nginx.com/).
 
 | States | Descriptions |
 | --- | --- |
-| `nginx` | Install and deploy NGINX with self-signed certificate. |
+| `nginx` | Configure NGINX and create self-signed certificate. |
+| `nginx.service` | Deploy NGINX with the created self-signed certificate. |
