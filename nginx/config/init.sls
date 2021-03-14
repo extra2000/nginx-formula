@@ -2,4 +2,5 @@
 # vim: ft=sls
 
 include:
-  - .nginx
+  - .files
+  - .allow_port_from_80

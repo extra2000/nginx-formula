@@ -1,0 +1,82 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod
+  labels:
+    app: nginx-pod
+spec:
+  restartPolicy: Never #OnFailure
+  {% if nginx.host_network %}
+  hostNetwork: true
+  {% endif %}
+  containers:
+  - name: srv01
+    image: "{{ nginx.image.name }}"
+    securityContext:
+      allowPrivilegeEscalation: false
+      privileged: false
+      capabilities:
+        add:
+        - CAP_NET_BIND_SERVICE
+        drop:
+        - CAP_MKNOD
+        - CAP_NET_RAW
+        - CAP_AUDIT_WRITE
+      seLinuxOptions: {}
+    resources:
+      requests:
+        memory: {{ nginx.resources.requests.memory }}
+      limits:
+        memory: {{ nginx.resources.limits.memory }}
+    {% if not nginx.host_network %}
+    ports:
+    - containerPort: {{ nginx.port.http.container }}
+      hostPort: {{ nginx.port.http.host }}
+      hostIP: {{ nginx.port.http.ip }}
+      protocol: tcp
+    - containerPort: {{ nginx.port.https.container }}
+      hostPort: {{ nginx.port.https.host }}
+      hostIP: {{ nginx.port.https.ip }}
+      protocol: tcp
+    {% endif %}
+    volumeMounts:
+    - mountPath: /etc/nginx/conf.d/https.conf
+      name: nginx-https-conf
+      readOnly: true
+    - mountPath: /etc/pki/nginx/server.crt
+      name: ssl-server-crt
+      readOnly: true
+    - mountPath: /etc/pki/nginx/private/server.key
+      name: ssl-server-key
+      readOnly: true
+    - mountPath: /etc/nginx/ssl-params.conf
+      name: ssl-params-conf
+      readOnly: true
+    {% if nginx.dhparam.enabled %}
+    - mountPath: /etc/pki/nginx/private/dhparam.pem
+      name: dhparam-key
+      readOnly: true
+    {% endif %}
+    - mountPath: /var/log/nginx
+      name: nginx-logs
+  volumes:
+  - name: nginx-https-conf
+    hostPath:
+      path: /opt/nginx/https.conf
+  - name: ssl-server-crt
+    hostPath:
+      path: /opt/nginx/ssl/server.crt
+  - name: ssl-server-key
+    hostPath:
+      path: /opt/nginx/ssl/private/server.key
+  - name: ssl-params-conf
+    hostPath:
+      path: /opt/nginx/ssl/ssl-params.conf
+  {% if nginx.dhparam.enabled %}
+  - name: dhparam-key
+    hostPath:
+      path: /opt/nginx/ssl/private/dhparam.pem
+  {% endif %}
+  - name: nginx-logs
+    persistentVolumeClaim:
+      claimName: nginx-logs

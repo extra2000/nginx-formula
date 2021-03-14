@@ -1,12 +1,8 @@
 # -*- coding: utf-8 -*-
 # vim: ft=yaml
 
-CentOS Linux-8:
-  package:
-    semanage_tool: policycoreutils-python-utils
+CentOS Linux-8: {}
 
-CentOS Linux-7:
-  package:
-    semanage_tool: policycoreutils-python
+CentOS Linux-7: {}
 
 Ubuntu-20.04: {}

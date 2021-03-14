@@ -2,9 +2,5 @@
 # vim: ft=sls
 
 include:
-  - .package
+  - .config
   - .ssl
-  - .service
-  {% if grains['os_family'] == 'RedHat' %}
-  - .selinux
-  {% endif %}
