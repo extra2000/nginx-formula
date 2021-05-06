@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.0.1](https://github.com/extra2000/nginx-formula/compare/v2.0.0...v2.0.1) (2021-05-06)
+
+
+### Fixes
+
+* **defaults.yaml, pillar.example:** Use `cni-podman1` instead of `cni-podman0` to prevent conflicts with rootless containers ([d3ccf64](https://github.com/extra2000/nginx-formula/commit/d3ccf64c10b78c33b77b0a1cb06d471827203feb))
+
 ## [2.0.0](https://github.com/extra2000/nginx-formula/compare/v1.0.1...v2.0.0) (2021-03-14)
 
 
