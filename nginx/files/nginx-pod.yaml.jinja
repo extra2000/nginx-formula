@@ -40,8 +40,8 @@ spec:
       protocol: tcp
     {% endif %}
     volumeMounts:
-    - mountPath: /etc/nginx/conf.d/https.conf
-      name: nginx-https-conf
+    - mountPath: /etc/nginx/conf.d
+      name: nginx-https-confd
       readOnly: true
     - mountPath: /etc/pki/nginx/server.crt
       name: ssl-server-crt
@@ -60,9 +60,9 @@ spec:
     - mountPath: /var/log/nginx
       name: nginx-logs
   volumes:
-  - name: nginx-https-conf
+  - name: nginx-https-confd
     hostPath:
-      path: /opt/nginx/https.conf
+      path: /opt/nginx/conf.d
   - name: ssl-server-crt
     hostPath:
       path: /opt/nginx/ssl/server.crt

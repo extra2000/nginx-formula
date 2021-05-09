@@ -36,12 +36,13 @@
     - context:
       ssl: {{ NGINX.ssl }}
 
-/opt/nginx/https.conf:
-  file.managed:
-    - source: salt://nginx/files/https.conf
+/opt/nginx/conf.d:
+  file.recurse:
+    - source: salt://nginx/files/conf.d
     - user: {{ NGINX.hostuser.name }}
     - group: {{ NGINX.hostuser.group }}
-    - template: jinja
+    - show_changes: false
+    - file_mode: keep
 
 /opt/nginx/ssl/ssl-params.conf:
   file.managed:
