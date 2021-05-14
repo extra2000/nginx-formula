@@ -1,5 +1,26 @@
 # Changelog
 
+## [3.0.0](https://github.com/extra2000/nginx-formula/compare/v2.0.1...v3.0.0) (2021-05-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* **config.files:** All NGINX conf files should be put into `/opt/nginx/conf.d/`.
+
+### Features
+
+* **config.files:** Allow multiple NGINX conf files for hosting reverse proxy on multiple services ([8bc50c2](https://github.com/extra2000/nginx-formula/commit/8bc50c22196d43215063430183ba2a3a862d82c7))
+
+
+### Fixes
+
+* **https.conf.example:** Remove `default_server` to avoid conflict with multiple conf files ([ea240f9](https://github.com/extra2000/nginx-formula/commit/ea240f9e97fabf001b340ddead9d3511e6cfe90e))
+
+
+### Styles
+
+* **https.conf.example:** Move `server_name _;` to the top ([f290bcd](https://github.com/extra2000/nginx-formula/commit/f290bcd992e2c4ac9d665526453bde145e760605))
+
 ### [2.0.1](https://github.com/extra2000/nginx-formula/compare/v2.0.0...v2.0.1) (2021-05-06)
 
 
