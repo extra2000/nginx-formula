@@ -1,5 +1,13 @@
 # Changelog
 
+### [3.0.1](https://github.com/extra2000/nginx-formula/compare/v3.0.0...v3.0.1) (2021-05-16)
+
+
+### Code Refactoring
+
+* **gitignore:** ignore all files in `nginx/files/conf.d/` except `nginx/files/conf.d/.gitkeep` ([1b942f4](https://github.com/extra2000/nginx-formula/commit/1b942f44df5c1e570f07e87186658168adf869c5))
+* **https:** remove unused HTTPS conf files ([b65537c](https://github.com/extra2000/nginx-formula/commit/b65537ce4978ee07876eb60a41772202811c335d))
+
 ## [3.0.0](https://github.com/extra2000/nginx-formula/compare/v2.0.1...v3.0.0) (2021-05-14)
 
 
