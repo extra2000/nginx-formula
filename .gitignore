@@ -1,0 +1,2 @@
+nginx/files/conf.d/*
+!nginx/files/conf.d/.gitkeep
